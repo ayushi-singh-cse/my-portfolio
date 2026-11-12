@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ayushi Singh | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #252536;
+            line-height: 1.7;
+        }
+
+        :root {
+            --purple: #7161bd;
+            --light-purple: #f2f0fa;
+            --text: #252536;
+            --muted: #777783;
+        }
+
+        /* Navigation */
+
+        header {
+            width: 100%;
+            padding: 22px 5%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.96);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #33333f;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--purple);
+        }
+
+        /* Common Sections */
+
+        section {
+            padding: 75px 5%;
+            scroll-margin-top: 65px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: var(--purple);
+            margin-bottom: 35px;
+        }
+
+        /* Home */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .hero-content {
+            max-width: 570px;
+        }
+
+        .hero-content .intro {
+            color: var(--purple);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(38px, 5vw, 54px);
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .hero-content h2 {
+            color: var(--purple);
+            font-size: 21px;
+            margin-bottom: 18px;
+        }
+
+        .hero-content p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .profile-photo {
+            width: 235px;
+            height: 235px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #eeeaf9;
+        }
+
+        /* Buttons */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--purple);
+            color: white;
+            border: 1px solid var(--purple);
+        }
+
+        .btn-primary:hover {
+            background: #594a9d;
+        }
+
+        .btn-outline {
+            color: var(--purple);
+            border: 1px solid var(--purple);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--light-purple);
+        }
+
+        /* About */
+
+        .about-text {
+            max-width: 850px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(150px, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 22px 18px;
+            background: #fff;
+            border: 1px solid #f0eef6;
+            border-radius: 9px;
+            min-height: 125px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.025);
+        }
+
+        .skill-card h3 {
+            color: var(--purple);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            padding: 23px;
+            background: white;
+            border: 1px solid #f0eef6;
+            border-radius: 9px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.025);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(113,97,189,0.10);
+        }
+
+        .project-card h3 {
+            color: var(--purple);
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            color: var(--purple);
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Education */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .education-card {
+            padding: 20px;
+            border-left: 4px solid var(--purple);
+            min-height: 150px;
+        }
+
+        .education-card h3 {
+            color: var(--purple);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .education-card h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        /* Contact */
+
+        .contact-section {
+            background: var(--light-purple);
+            text-align: center;
+            padding: 65px 5%;
+        }
+
+        .contact-section h2 {
+            color: var(--purple);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            background: white;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 1000px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                justify-content: center;
+                padding: 18px 4%;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                min-height: auto;
+                padding-top: 45px;
+            }
+
+            .hero-content {
+                margin: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-image {
+                margin-bottom: 15px;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 33px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="intro">Hello, I'm</p>
+
+            <h1>Ayushi Singh</h1>
+
+            <h2>Computer Science Engineering Student</h2>
+
+            <p>
+                Hi, I'm Ayushi Singh, a Computer Science Engineering student
+                pursuing B.Tech. I am passionate about programming,
+                software development and data analysis. I enjoy exploring
+                new technologies, solving problems and building practical
+                projects to improve my technical skills. My goal is to
+                grow as a skilled software developer.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Projects
+                </a>
+
+                <a href="resume/resume.pdf"
+                   class="btn btn-outline"
+                   download>
+                    Download Resume
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="images/profile.jpeg"
+                 alt="Ayushi Singh"
+                 class="profile-photo">
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="about-text">
+            I am pursuing B.Tech in Computer Science and Engineering
+            from Maharishi Dayanand University. I have an interest in
+            programming, software development and data analysis.
+            I continuously work on improving my technical knowledge
+            through learning and practical projects. I believe in
+            being hardworking, adaptable and open to new opportunities.
+        </p>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Programming Languages</h3>
+                <p>Java, C++, C</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Web Development</h3>
+                <p>HTML, CSS</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Core Concepts</h3>
+                <p>OOP, Data Structures and Algorithms</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Data Analysis</h3>
+                <p>Excel, Tableau</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Development Tools</h3>
+                <p>VS Code, Git, GitHub, Microsoft Office</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>Cafe Finder UI</h3>
+
+                <p>
+                    A frontend user interface project created using
+                    HTML and CSS to practice web design and layout development.
+                </p>
+
+                <a href="#" target="_blank">View Project ↗</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Online Quiz Application</h3>
+
+                <p>
+                    A Java-based application developed to practice
+                    programming concepts and application development.
+                </p>
+
+                <a href="#" target="_blank">View Project ↗</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Udemy Data Analysis</h3>
+
+                <p>
+                    A data analysis project using Excel and Tableau
+                    to explore data and create meaningful visualizations.
+                </p>
+
+                <a href="#" target="_blank">View Project ↗</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Cartoonify Image</h3>
+
+                <p>
+                    A Python project that transforms photographs into
+                    cartoon-style images using image processing.
+                </p>
+
+                <a href="https://github.com/"
+                   target="_blank">View Project ↗</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+
+        <h2 class="section-title">My Education</h2>
+
+        <div class="education-grid">
+
+            <div class="education-card">
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <h4>Computer Science and Engineering</h4>
+                <p>MDU University</p>
+                <p>Currently Pursuing</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Senior Secondary (Class 12th)</h3>
+                <h4>Class XII</h4>
+                <p>Kendriya Vidyalaya</p>
+                <p>CBSE Board</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Secondary Education (Class 10th)</h3>
+                <h4>Class X</h4>
+                <p>Kendriya Vidyalaya</p>
+                <p>CBSE Board</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+
+        <h2>Let's Connect!</h2>
+
+        <p>
+            I am always interested in learning, collaborating
+            and exploring new opportunities.
+        </p>
+
+        <div class="contact-buttons">
+
+            <a href="https://github.com/"
+               target="_blank"
+               class="btn btn-primary">
+                GitHub Profile
+            </a>
+
+            <a href="https://www.linkedin.com/in/ayushi-singh-ba35253a2"
+               target="_blank"
+               class="btn btn-primary">
+                LinkedIn Profile
+            </a>
+
+            <a href="mailto:ayushisinghblack28@gmail.com"
+               class="btn btn-outline">
+                Contact Me
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Ayushi Singh | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
